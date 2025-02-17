@@ -1,0 +1,73 @@
+.footerContact {
+  background-color: #27ae60;
+  padding: 40px 0;
+  color: #fff;
+}
+.footerContact h1 {
+  font-size: 40px;
+}
+footer {
+  background-color: #bb2525;
+  padding: 60px 0;
+  color: #f8f5f5;
+}
+footer .container {
+  display: grid;
+  grid-template-columns: 6fr 2fr 2fr 1fr;
+  grid-gap: 20px;
+}
+footer img {
+  width: 150px;
+}
+footer h2 {
+  font-weight: 500;
+}
+footer p {
+  width: 70%;
+  color: rgb(248, 246, 246);
+  margin: 20px 0;
+  text-align: justify;
+}
+footer input {
+  background-color: #fff;
+  padding: 17px;
+  width: 250px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+footer h3 {
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+footer ul {
+  display: block;
+}
+footer ul li {
+  display: block;
+  color: rgb(247, 246, 246);
+  margin-bottom: 20px;
+}
+.subscribe-button {
+  background-color: #1e21d3; /* Warna merah */
+  color: #fff; /* Warna teks putih */
+  border: none; /* Menghapus border */
+  padding: 8px 16px; /* Padding tombol */
+  border-radius: 5px; /* Memberikan sudut melengkung pada tombol */
+  cursor: pointer; /* Mengubah kursor saat diarahkan ke tombol */
+}
+
+.subscribe-button:hover {
+  background-color: #f38a8a; /* Warna merah yang sedikit lebih gelap saat tombol dihover */
+}
+.legal {
+  text-align: center;
+  padding: 20px;
+  background: #e62a2a;
+  color: rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+@media screen and (max-width: 800px) {
+  footer .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

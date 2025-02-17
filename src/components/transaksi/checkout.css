@@ -1,0 +1,187 @@
+.checkout-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.checkout-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.checkout-content {
+  display: flex;
+  gap: 20px;
+}
+
+/* Kiri: Daftar Item */
+.checkout-items {
+  flex: 2;
+}
+
+.checkout-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 15px;
+}
+
+.checkout-item-info {
+  flex: 1;
+}
+
+/* Kanan: Alamat & Checkout */
+.checkout-summary {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-address {
+  margin-bottom: 15px;
+}
+
+.checkout-address h4 {
+  font-weight: bold;
+  font-size: 20px;
+  color: #000000;
+}
+
+.address-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.error-text {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.checkout-buttons {
+  margin-top: 30px;
+}
+
+.checkout-buttons h4 {
+  font-size: 1.3rem;
+  color: #000000;
+}
+
+.btn-back-checkout,
+.btn-confirm-checkout {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-back-checkout {
+  background: #ddd;
+}
+
+.btn-confirm-checkout {
+  background: #28a745;
+  color: white;
+}
+
+.btn-back:hover {
+  background: #ccc;
+}
+
+.btn-confirm:hover {
+  background: #218838;
+}
+
+/* Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.close {
+  font-size: 24px;
+  cursor: pointer;
+  float: right;
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn-payment {
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.btn-payment:hover {
+  transform: scale(1.05);
+}
+
+.bank-transfer {
+  background: #007bff;
+  color: white;
+}
+
+.gopay {
+  background: #1abc9c;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .modal-content {
+    width: 95%;
+  }
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .checkout-content {
+    flex-direction: column;
+  }
+}

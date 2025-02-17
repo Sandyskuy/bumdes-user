@@ -1,0 +1,79 @@
+/* Container for the registration page to center content both horizontally and vertically */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa; /* Light grey background for contrast */
+}
+
+/* Styling for the registration form container */
+.register-content {
+  max-width: 400px;
+  width: 100%;
+  padding: 30px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* White background for the form */
+  text-align: center; /* Center align text inside the form */
+}
+
+.register-content h2 {
+  color: #BB2525; /* Primary color for the heading */
+  margin-bottom: 20px; /* Add space below the heading */
+}
+
+.register-form .form-group {
+  margin-bottom: 15px;
+}
+
+.register-form .form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.register-form .form-group input:focus {
+  border-color: #BB2525;
+}
+
+.register-form .error {
+  color: #BB2525;
+  margin-top: 5px;
+  text-align: left;
+}
+
+.register-form .success {
+  color: green;
+}
+
+.register-form .error-message {
+  color: #BB2525;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.register-form .btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #BB2525; /* Primary color for the button */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.register-form .btn:hover {
+  background-color: #a12020;
+}
+
+.register-form .btn:disabled {
+  background-color: #ddd;
+}

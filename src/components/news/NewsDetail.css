@@ -1,0 +1,139 @@
+/* General styling */
+.news-detail {
+  background-color: #f4f6f9;
+  padding: 40px 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.container-news {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.news-header {
+  margin-bottom: 40px;
+}
+
+.news-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #333;
+  margin-top: 20px;
+}
+
+.news-description {
+  font-size: 1.2rem;
+  color: #777;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.news-detail-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px; /* Adds some space above the image */
+  object-fit: cover; /* Ensures the image covers the space without stretching */
+}
+
+.news-meta {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #555;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+.author,
+.publish-date {
+  margin: 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.author {
+  font-weight: 600;
+}
+
+.publish-date {
+  color: #777;
+}
+
+.tags {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.tag {
+  background-color: #868689;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.6rem;
+  cursor: pointer;
+}
+
+.news-content {
+  font-size: 1.4rem;
+  color: #555;
+  line-height: 1.8;
+  margin-top: 30px;
+  text-align: justify;
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background-color: #ccc; /* Light gray color for the divider */
+  margin: 0;
+}
+
+.read-more {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-top: 15px;
+  display: inline-block;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .news-title {
+    font-size: 2.4rem;
+  }
+
+  .news-description {
+    font-size: 1rem;
+  }
+
+  .news-meta {
+    font-size: 1rem;
+  }
+
+  .news-content {
+    font-size: 1.3rem;
+  }
+
+  .news-detail-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Maintain aspect ratio */
+  }
+
+  .related-news-list {
+    flex-direction: column;
+  }
+
+  .related-news-item {
+    width: 100%;
+  }
+}

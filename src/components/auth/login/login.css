@@ -1,0 +1,113 @@
+/* Container for the login page to center content both horizontally and vertically */
+.container-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa; /* Light grey background for contrast */
+}
+
+/* Styling for the login form container */
+.login-form {
+  max-width: 400px;
+  width: 100%;
+  padding: 30px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* White background for the form */
+  text-align: center; /* Center align text inside the form */
+}
+
+/* Styling for the project title */
+.project-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #BB2525; /* Primary color for the title */
+  margin-bottom: 20px;
+}
+
+/* Center the heading */
+.login-form h2 {
+  color: #BB2525; /* Primary color for the heading */
+  margin-bottom: 20px; /* Add space below the heading */
+}
+
+/* Styling for form fields */
+.login-form form div {
+  margin-bottom: 15px;
+}
+
+/* Styling for form labels */
+.login-form form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333; /* Dark color for labels */
+  text-align: left; /* Align labels to the left */
+}
+
+/* Styling for form inputs */
+.login-form form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+/* Change border color on focus for inputs */
+.login-form form input:focus {
+  border-color: #BB2525;
+}
+
+/* Styling for the error message */
+.login-form .error-message {
+  color: #BB2525;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Styling for the login button */
+.login-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #BB2525; /* Primary color for the button */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+/* Change background color on hover for the button */
+.login-form button:hover {
+  background-color: #a12020;
+}
+
+/* Disabled state for the button */
+.login-form button:disabled {
+  background-color: #ddd;
+}
+
+/* Additional styling for the sign-up text */
+.signup-text {
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Styling for the sign-up link */
+.signup-text a {
+  color: #BB2525;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+/* Change text color on hover for the link */
+.signup-text a:hover {
+  color: #a12020;
+  text-decoration: underline;
+}

@@ -1,0 +1,41 @@
+.news-grid {
+  display: flex;
+  gap: 20px;
+}
+
+.news-large {
+  flex: 2;
+  position: relative;
+}
+
+.news-large img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.news-overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px;
+  width: 100%;
+}
+
+.news-small-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.news-small {
+  position: relative;
+}
+
+.news-small img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

@@ -1,0 +1,135 @@
+header {
+  background-color: #fff;
+  height: 11vh;
+  box-shadow: 0 5px 30px rgb(0 22 84 / 10%);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 99999;
+}
+
+.nav{
+  margin-top: 10px; /* Adjust padding as needed */
+}
+
+.logo-bumdes {
+  display: flex;
+  align-items: center;
+
+}
+
+.logo-bumdes img {
+  width: 170px; /* Adjust the width of the logo */
+  height: auto; /* Maintain the aspect ratio */
+  transition: transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.logo-bumdes img:hover {
+  transform: scale(1.05); /* Slightly enlarge the logo on hover */
+}
+
+header a {
+  margin-left: 30px;
+  transition: 0.5s;
+  font-weight: 500;
+}
+header a:hover {
+  color: #e21f1f;
+}
+header span {
+  width: auto;
+  padding: 0px 6px;
+  background: #e21f1f;
+  border-radius: 50px;
+  color: #ffffff;
+  margin-right: 4px;
+  font-weight: 400;
+}
+header h4 {
+  font-weight: 500;
+  margin-right: 20px;
+}
+header .toggle {
+  display: none;
+}
+
+.btn-signout {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: #e21f1f; /* Primary color */
+  color: #fff; /* Text color */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  font-weight: 500; /* Font weight */
+  text-decoration: none; /* No underline */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.btn-signout i {
+  margin-right: 8px; /* Space between icon and text */
+}
+
+.btn-signout:hover {
+  background-color: #c81a1a; /* Darker shade for hover effect */
+  color: #fff; /* Ensure text color remains white */
+}
+
+/* header.css */
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.profile-dropdown-toggle {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.profile-dropdown-toggle::after {
+  display: none;
+}
+
+
+@media screen and (max-width: 768px) {
+  header {
+    padding: 0;
+  }
+  header img {
+    margin-top: 30px;
+  }
+  header .button {
+    display: none;
+  }
+  header .nav .flex {
+    display: none;
+  }
+  header .toggle {
+    display: block;
+    margin-top: 20px;
+  }
+  header .small {
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    width: 100%;
+    background-color: #e21f1f;
+    padding: 20px;
+  }
+  header li a {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+}

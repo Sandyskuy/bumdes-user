@@ -1,0 +1,26 @@
+.about-section {
+  margin-bottom: 80px;
+}
+.about-section .heading {
+  text-align: left;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.about-section p {
+  text-align: justify;
+  font-size: 15px;
+  padding-right: 30px;
+  margin-bottom: 20px;
+  line-height: 30px;
+}
+@media screen and (max-width: 768px) {
+  .about-section .container {
+    flex-direction: column;
+  }
+  .about-section p {
+    padding: 0;
+  }
+  .about-section .container img {
+    margin-top: 50px;
+  }
+}
