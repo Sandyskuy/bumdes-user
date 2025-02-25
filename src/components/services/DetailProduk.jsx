@@ -77,7 +77,7 @@ const DetailBarang = () => {
             <img
               src={`http://localhost:8080/uploads/${barang.gambar}`}
               alt={barang.nama}
-              className="product-image"
+              className="product-detail-image"
             />
           </div>
         </div>
@@ -95,7 +95,7 @@ const DetailBarang = () => {
             {/* Quantity Control */}
             <div className="quantity-container mb-4">
               <button
-                className="quantity-btn"
+                className="quantity-btn-detail"
                 onClick={() => setQuantity(Math.max(quantity - 1, 1))}
               >
                 -
@@ -108,7 +108,7 @@ const DetailBarang = () => {
                 onChange={(e) => setQuantity(Number(e.target.value))}
               />
               <button
-                className="quantity-btn"
+                className="quantity-btn-detail"
                 onClick={() => setQuantity(quantity + 1)}
               >
                 +

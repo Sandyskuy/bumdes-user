@@ -19,7 +19,8 @@ body {
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  font-size: 16px;
+  font-size: 14px;
+  height: 40px;
 }
 
 .search-input {
@@ -106,4 +107,80 @@ body {
 .pagination .active a {
   background-color: #007bff;
   color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .filter-container {
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+  .search-input,
+  .category-select {
+    width: 200px;
+  }
+
+  .service {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-input,
+  .category-select {
+    width: 80%;
+    margin-bottom: 15px;
+  }
+
+  .service {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-top: 20px;
+  }
+
+  .service {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .card-title {
+    font-size: 0.9rem;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+  }
+
+  .pagination-container {
+    margin-top: 20px;
+  }
 }

@@ -1,28 +1,32 @@
-import React from "react"
-import img from "../images/pricing1.png"
-import Back from "../common/Back"
-import "./contact.css"
+import React from "react";
+import img from "../images/pricing1.png";
+import Back from "../common/Back";
+import "./contact.css";
 
 const Contact = () => {
   return (
-    <>
-      <section className='contact mb'>
-        <Back name='Contact Us' title='Get Helps & Friendly Support' cover={img} />
-        <div className='container'>
-          <form className='shadow'>
-            <h4>Fillup The Form</h4> <br />
-            <div>
-              <input type='text' placeholder='Name' />
-              <input type='text' placeholder='Email' />
+    <section className="contact">
+      <Back
+        name="Contact Us"
+        title="Get Helps & Friendly Support"
+        cover={img}
+      />
+      <div className="container">
+        <div className="contact-form">
+          <h4>Fill Up The Form</h4>
+          <form>
+            <div className="input-group">
+              <input type="text" placeholder="Name" required />
+              <input type="email" placeholder="Email" required />
             </div>
-            <input type='text' placeholder='Subject' />
-            <textarea cols='30' rows='10'></textarea>
-            <button>Submit Request</button>
+            <input type="text" placeholder="Subject" required />
+            <textarea placeholder="Message" rows="5" required></textarea>
+            <button type="submit">Submit Request</button>
           </form>
         </div>
-      </section>
-    </>
-  )
-}
+      </div>
+    </section>
+  );
+};
 
-export default Contact
+export default Contact;

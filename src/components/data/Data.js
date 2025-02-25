@@ -15,8 +15,7 @@ export const nav = [
     text: "hubungi kami",
     path: "/contact",
   },
-]
-
+];
 
 export const navLogined = [
   {
@@ -34,18 +33,6 @@ export const navLogined = [
   {
     text: "hubungi kami",
     path: "/contact",
-  },
-  {
-    text: "Keranjang",
-    path: "/keranjang",
-  },
-  {
-    text: "Payments",
-    path: "/payments",
-  },
-  {
-    text: "Riwayat",
-    path: "/riwayat",
   },
 ];
 
@@ -75,7 +62,7 @@ export const featured = [
     name: "Terpercaya",
     total: "",
   },
-]
+];
 export const list = [
   {
     id: 1,
@@ -131,29 +118,29 @@ export const list = [
     price: "$2,742",
     type: "Apartment",
   },
-]
+];
 export const awards = [
   {
-    icon: <i class='fa-solid fa-trophy'></i>,
+    icon: <i class="fa-solid fa-trophy"></i>,
     num: "",
     name: "UMKM Terbaik",
   },
   {
-    icon: <i class='fa-solid fa-briefcase'></i>,
+    icon: <i class="fa-solid fa-briefcase"></i>,
     num: "",
     name: "Terjangkau",
   },
   {
-    icon: <i class='fa-solid fa-lightbulb'></i>,
+    icon: <i class="fa-solid fa-lightbulb"></i>,
     num: "",
     name: "Inovatif",
   },
   {
-    icon: <i class='fa-solid fa-heart'></i>,
+    icon: <i class="fa-solid fa-heart"></i>,
     num: "",
     name: "Terpercaya",
   },
-]
+];
 export const location = [
   {
     id: 1,
@@ -203,51 +190,81 @@ export const location = [
     Offices: "07 Offices",
     cover: "./images/location/city-6.png",
   },
-]
+];
 export const team = [
   {
     list: "50",
     cover: "../images/customer/team-1.jpg",
     address: "Liverpool, Canada",
     name: "Sargam S. Singh",
-    icon: [<i class='fa-brands fa-facebook-f'></i>, <i class='fa-brands fa-linkedin'></i>, <i class='fa-brands fa-twitter'></i>, <i class='fa-brands fa-instagram'></i>],
+    icon: [
+      <i class="fa-brands fa-facebook-f"></i>,
+      <i class="fa-brands fa-linkedin"></i>,
+      <i class="fa-brands fa-twitter"></i>,
+      <i class="fa-brands fa-instagram"></i>,
+    ],
   },
   {
     list: "70",
     cover: "../images/customer/team-2.jpg",
     address: "Montreal, Canada",
     name: "Harijeet M. Siller",
-    icon: [<i class='fa-brands fa-facebook-f'></i>, <i class='fa-brands fa-linkedin'></i>, <i class='fa-brands fa-twitter'></i>, <i class='fa-brands fa-instagram'></i>],
+    icon: [
+      <i class="fa-brands fa-facebook-f"></i>,
+      <i class="fa-brands fa-linkedin"></i>,
+      <i class="fa-brands fa-twitter"></i>,
+      <i class="fa-brands fa-instagram"></i>,
+    ],
   },
   {
     list: "80",
     cover: "../images/customer/team-3.jpg",
     address: "Denever, USA",
     name: "Anna K. Young",
-    icon: [<i class='fa-brands fa-facebook-f'></i>, <i class='fa-brands fa-linkedin'></i>, <i class='fa-brands fa-twitter'></i>, <i class='fa-brands fa-instagram'></i>],
+    icon: [
+      <i class="fa-brands fa-facebook-f"></i>,
+      <i class="fa-brands fa-linkedin"></i>,
+      <i class="fa-brands fa-twitter"></i>,
+      <i class="fa-brands fa-instagram"></i>,
+    ],
   },
   {
     list: "51",
     cover: "../images/customer/team-4.jpg",
     address: "2272 Briarwood Drive",
     name: "Michael P. Grimaldo",
-    icon: [<i class='fa-brands fa-facebook-f'></i>, <i class='fa-brands fa-linkedin'></i>, <i class='fa-brands fa-twitter'></i>, <i class='fa-brands fa-instagram'></i>],
+    icon: [
+      <i class="fa-brands fa-facebook-f"></i>,
+      <i class="fa-brands fa-linkedin"></i>,
+      <i class="fa-brands fa-twitter"></i>,
+      <i class="fa-brands fa-instagram"></i>,
+    ],
   },
   {
     list: "42",
     cover: "../images/customer/team-5.jpg",
     address: "2272 Briarwood Drive",
     name: "Michael P. Grimaldo",
-    icon: [<i class='fa-brands fa-facebook-f'></i>, <i class='fa-brands fa-linkedin'></i>, <i class='fa-brands fa-twitter'></i>, <i class='fa-brands fa-instagram'></i>],
+    icon: [
+      <i class="fa-brands fa-facebook-f"></i>,
+      <i class="fa-brands fa-linkedin"></i>,
+      <i class="fa-brands fa-twitter"></i>,
+      <i class="fa-brands fa-instagram"></i>,
+    ],
   },
   {
     list: "38",
     cover: "../images/customer/team-5.jpg",
     address: "Montreal, USA",
     name: "Adam K. Jollio",
-    icon: [<i class='fa-brands fa-facebook-f'></i>, <i class='fa-brands fa-linkedin'></i>, <i class='fa-brands fa-twitter'></i>, <i class='fa-brands fa-instagram'></i>],
+    icon: [
+      <i class="fa-brands fa-facebook-f"></i>,
+      <i class="fa-brands fa-linkedin"></i>,
+      <i class="fa-brands fa-twitter"></i>,
+      <i class="fa-brands fa-instagram"></i>,
+    ],
   },
-]
+];
 export const price = [
   {
     plan: "Basic",
@@ -255,19 +272,27 @@ export const price = [
     ptext: "per user, per month",
     list: [
       {
-        icon: <i class='fa-solid fa-check'></i>,
+        icon: <i class="fa-solid fa-check"></i>,
         text: "99.5% Uptime Guarantee",
       },
       {
-        icon: <i class='fa-solid fa-check'></i>,
+        icon: <i class="fa-solid fa-check"></i>,
         text: "120GB CDN Bandwidth",
       },
       {
-        icon: <i class='fa-solid fa-check'></i>,
+        icon: <i class="fa-solid fa-check"></i>,
         text: "5GB Cloud Storage",
       },
-      { change: "color", icon: <i class='fa-solid fa-x'></i>, text: "Personal Help Support" },
-      { change: "color", icon: <i class='fa-solid fa-x'></i>, text: "Enterprise SLA" },
+      {
+        change: "color",
+        icon: <i class="fa-solid fa-x"></i>,
+        text: "Personal Help Support",
+      },
+      {
+        change: "color",
+        icon: <i class="fa-solid fa-x"></i>,
+        text: "Enterprise SLA",
+      },
     ],
   },
   {
@@ -277,24 +302,24 @@ export const price = [
     ptext: "per user, per month",
     list: [
       {
-        icon: <i class='fa-solid fa-check'></i>,
+        icon: <i class="fa-solid fa-check"></i>,
         text: "99.5% Uptime Guarantee",
       },
       {
-        icon: <i class='fa-solid fa-check'></i>,
+        icon: <i class="fa-solid fa-check"></i>,
         text: "150GB CDN Bandwidth",
       },
       {
-        icon: <i class='fa-solid fa-check'></i>,
+        icon: <i class="fa-solid fa-check"></i>,
         text: "10GB Cloud Storage",
       },
       {
-        icon: <i class='fa-solid fa-check'></i>,
+        icon: <i class="fa-solid fa-check"></i>,
         text: "Personal Help Support",
       },
       {
         change: "color",
-        icon: <i class='fa-solid fa-x'></i>,
+        icon: <i class="fa-solid fa-x"></i>,
         text: "Enterprise SLA",
       },
     ],
@@ -305,35 +330,46 @@ export const price = [
     ptext: "2 user, per month",
     list: [
       {
-        icon: <i class='fa-solid fa-check'></i>,
+        icon: <i class="fa-solid fa-check"></i>,
         text: "100% Uptime Guarantee",
       },
       {
-        icon: <i class='fa-solid fa-check'></i>,
+        icon: <i class="fa-solid fa-check"></i>,
         text: "200GB CDN Bandwidth",
       },
       {
-        icon: <i class='fa-solid fa-check'></i>,
+        icon: <i class="fa-solid fa-check"></i>,
         text: "20GB Cloud Storage",
       },
       {
-        icon: <i class='fa-solid fa-check'></i>,
+        icon: <i class="fa-solid fa-check"></i>,
         text: "Personal Help Support",
       },
       {
-        icon: <i class='fa-solid fa-check'></i>,
+        icon: <i class="fa-solid fa-check"></i>,
         text: "Enterprise SLA",
       },
     ],
   },
-]
+];
 export const footer = [
   {
     title: "MENU",
-    text: [{ list: "Beranda" }, { list: "Produk" }, { list: "Tentang Kami" }, { list: "Hubungi kami" }],
+    text: [
+      { list: "Beranda" },
+      { list: "Produk" },
+      { list: "Tentang Kami" },
+      { list: "Hubungi kami" },
+    ],
   },
   {
     title: "KONTAK",
-    text: [{ list: "Email : bumdessidomulyo@gmail.com" }, { list: "No telp : 0891826281881" }, { list: "Alamat : CJGC+4PG, Sindon, Sidomulyo, Kec. Wonoasri, Kabupaten Madiun, Jawa Timur 63157" }],
+    text: [
+      { list: "Email : bumdessidomulyo@gmail.com" },
+      { list: "No telp : 0891826281881" },
+      {
+        list: "Alamat : CJGC+4PG, Sindon, Sidomulyo, Kec. Wonoasri, Kabupaten Madiun, Jawa Timur 63157",
+      },
+    ],
   },
-]
+];

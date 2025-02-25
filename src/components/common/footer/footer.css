@@ -2,72 +2,126 @@
   background-color: #27ae60;
   padding: 40px 0;
   color: #fff;
+  text-align: center;
 }
+
 .footerContact h1 {
-  font-size: 40px;
+  font-size: 35px;
 }
+
 footer {
   background-color: #bb2525;
   padding: 60px 0;
   color: #f8f5f5;
 }
+
 footer .container {
   display: grid;
-  grid-template-columns: 6fr 2fr 2fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 20px;
+  padding: 0 20px;
+  text-align: center;
 }
+
 footer img {
-  width: 150px;
+  width: 120px;
+  margin-bottom: 15px;
 }
+
 footer h2 {
   font-weight: 500;
+  font-size: 1.5rem;
 }
+
 footer p {
-  width: 70%;
   color: rgb(248, 246, 246);
-  margin: 20px 0;
+  margin: 15px auto;
   text-align: justify;
+  max-width: 80%;
 }
-footer input {
-  background-color: #fff;
-  padding: 17px;
-  width: 250px;
-  margin-right: 10px;
-  border-radius: 5px;
-}
+
 footer h3 {
   font-weight: 500;
-  margin-bottom: 30px;
-}
-footer ul {
-  display: block;
-}
-footer ul li {
-  display: block;
-  color: rgb(247, 246, 246);
   margin-bottom: 20px;
+  font-size: 1.3rem;
 }
+
+footer ul {
+  padding: 0;
+  list-style: none;
+}
+
+footer ul li {
+  color: rgb(247, 246, 246);
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
 .subscribe-button {
-  background-color: #1e21d3; /* Warna merah */
-  color: #fff; /* Warna teks putih */
-  border: none; /* Menghapus border */
-  padding: 8px 16px; /* Padding tombol */
-  border-radius: 5px; /* Memberikan sudut melengkung pada tombol */
-  cursor: pointer; /* Mengubah kursor saat diarahkan ke tombol */
+  background-color: #1e21d3;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 .subscribe-button:hover {
-  background-color: #f38a8a; /* Warna merah yang sedikit lebih gelap saat tombol dihover */
+  background-color: #f38a8a;
 }
+
 .legal {
   text-align: center;
   padding: 20px;
   background: #e62a2a;
-  color: rgba(255, 255, 255, 0.5);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
-@media screen and (max-width: 800px) {
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 1024px) {
   footer .container {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  footer p {
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  footer .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  footer img {
+    width: 100px;
+  }
+
+  footer p {
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  footer h2 {
+    font-size: 1.3rem;
+  }
+
+  footer h3 {
+    font-size: 1.1rem;
+  }
+
+  .subscribe-button {
+    font-size: 0.9rem;
+    padding: 8px 14px;
+  }
+
+  .legal {
+    font-size: 0.8rem;
   }
 }

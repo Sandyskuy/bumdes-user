@@ -8,14 +8,13 @@ header {
   z-index: 99999;
 }
 
-.nav{
+.nav {
   margin-top: 10px; /* Adjust padding as needed */
 }
 
 .logo-bumdes {
   display: flex;
   align-items: center;
-
 }
 
 .logo-bumdes img {
@@ -26,6 +25,19 @@ header {
 
 .logo-bumdes img:hover {
   transform: scale(1.05); /* Slightly enlarge the logo on hover */
+}
+
+.btn-signin {
+  background: #eb4242;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.btn-signin:hover {
+  background: #e21f1f;
 }
 
 header a {
@@ -100,7 +112,6 @@ header .toggle {
 .profile-dropdown-toggle::after {
   display: none;
 }
-
 
 @media screen and (max-width: 768px) {
   header {

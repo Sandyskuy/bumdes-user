@@ -8,7 +8,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #f8f9fa; /* Warna abu-abu muda untuk tampilan yang bersih */
+  background-color: #f8f9fa; /* Light gray background for a clean look */
   color: #333;
 }
 
@@ -132,15 +132,55 @@ body {
   height: 300px;
 }
 
-/* Responsif */
+/* Responsive Styles */
 @media (max-width: 768px) {
+  /* On medium-sized screens (tablet portrait) */
   .recomended {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* Two items per row */
+  }
+
+  .heading-container h1 {
+    font-size: 1.5rem; /* Slightly smaller heading */
+  }
+
+  .lihat-semua-btn {
+    font-size: 0.8rem; /* Slightly smaller button text */
+    padding: 6px 12px;
   }
 }
 
 @media (max-width: 480px) {
+  /* On small-sized screens (mobile devices) */
   .recomended {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr; /* One item per row */
+  }
+
+  .heading-container {
+    flex-direction: row; /* Stack heading and button vertically */
+    align-items: flex-start;
+  }
+
+  .heading-container h1 {
+    font-size: 1.2rem; /* Even smaller heading */
+    margin-bottom: 10px;
+  }
+
+  .lihat-semua-btn {
+    width: 150px; /* Make button full-width on mobile */
+    font-size: 0.7rem;
+    padding: 5px;
+    margin-top: 10px;
+  }
+
+  .card-img {
+    height: 200px; /* Increase image height on small screens */
+  }
+
+  .card-titles {
+    font-size: 1rem; /* Slightly smaller title font */
+  }
+
+  .card-texts {
+    font-size: 0.9rem; /* Smaller price font */
   }
 }

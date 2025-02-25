@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import "./Keranjang.css"; // Pastikan Anda menambahkan CSS ini
+import { useNavigate, Link } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa"; // Import ikon keranjang
+import "./Keranjang.css";
 
 const Keranjang = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -13,21 +14,25 @@ const Keranjang = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
+    if (!token) {
+      alert("Anda harus login terlebih dahulu!");
+      navigate("/login");
+      return;
+    }
+
     const fetchCartItems = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/transaksi/Cart`,
+          "http://localhost:8080/transaksi/Cart",
           {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
+            headers: { Authorization: `Bearer ${token}` },
           }
         );
         setCartItems(response.data);
-        let total = 0;
-        response.data.forEach((item) => {
-          total += parseInt(item.harga) * item.jumlah;
-        });
+        let total = response.data.reduce(
+          (sum, item) => sum + parseInt(item.harga) * item.jumlah,
+          0
+        );
         setTotal(total);
       } catch (error) {
         setError(error.message);
@@ -35,14 +40,14 @@ const Keranjang = () => {
         setLoading(false);
       }
     };
+
     fetchCartItems();
-  }, []);
+  }, [navigate]);
 
   const handleCheckout = () => {
     navigate("/checkout", { state: { cartItems, total } });
   };
 
-  // Format harga ke dalam Rupiah
   const formatRupiah = (angka) => {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
@@ -57,7 +62,15 @@ const Keranjang = () => {
     <div className="container-cart mt-4">
       <h2 className="text-center mb-4">Keranjang Belanja</h2>
       {cartItems.length === 0 ? (
-        <p className="text-center">Keranjang kosong</p>
+        <div className="empty-cart-container">
+          <FaShoppingCart className="empty-cart-icon" />
+          <p className="text-center text-muted">
+            Oops! Keranjang belanja kamu masih kosong.
+          </p>
+          <Link to="/product" className="btn btn-primary">
+            Mulai Belanja
+          </Link>
+        </div>
       ) : (
         <div>
           {cartItems.map((item) => (

@@ -23,13 +23,13 @@
 .project-title {
   font-size: 24px;
   font-weight: bold;
-  color: #BB2525; /* Primary color for the title */
+  color: #bb2525; /* Primary color for the title */
   margin-bottom: 20px;
 }
 
 /* Center the heading */
 .login-form h2 {
-  color: #BB2525; /* Primary color for the heading */
+  color: #bb2525; /* Primary color for the heading */
   margin-bottom: 20px; /* Add space below the heading */
 }
 
@@ -59,12 +59,12 @@
 
 /* Change border color on focus for inputs */
 .login-form form input:focus {
-  border-color: #BB2525;
+  border-color: #bb2525;
 }
 
 /* Styling for the error message */
 .login-form .error-message {
-  color: #BB2525;
+  color: #bb2525;
   margin-bottom: 10px;
   text-align: center;
 }
@@ -73,7 +73,7 @@
 .login-form button {
   width: 100%;
   padding: 12px;
-  background-color: #BB2525; /* Primary color for the button */
+  background-color: #bb2525; /* Primary color for the button */
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -100,7 +100,7 @@
 
 /* Styling for the sign-up link */
 .signup-text a {
-  color: #BB2525;
+  color: #bb2525;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s;

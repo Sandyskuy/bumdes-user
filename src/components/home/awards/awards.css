@@ -1,11 +1,13 @@
 .news-grid {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .news-large {
   flex: 2;
   position: relative;
+  max-width: 70%; /* Limit the width on larger screens */
 }
 
 .news-large img {
@@ -38,4 +40,26 @@
   width: 100%;
   height: auto;
   border-radius: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .news-grid {
+    flex-direction: column; /* Stack news items vertically on smaller screens */
+  }
+
+  .news-large {
+    flex: 1; /* Allow the large news item to take up full width */
+    max-width: 100%; /* Allow the large news item to take up the full width */
+  }
+
+  .news-small-container {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .news-overlay {
+    padding: 5px; /* Adjust padding for smaller screens */
+  }
 }

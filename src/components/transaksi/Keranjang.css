@@ -5,6 +5,7 @@
   margin: 0 auto;
   padding: 20px;
 }
+
 .cart-item {
   display: flex;
   align-items: center;
@@ -54,4 +55,116 @@
 
 .text-end {
   text-align: right;
+}
+
+.empty-cart-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.empty-cart-icon {
+  font-size: 80px;
+  color: #bbb;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container-cart {
+    padding: 20px; /* Reduce padding on smaller screens */
+  }
+
+  .cart-item {
+    flex-direction: column; /* Stack cart items vertically */
+    align-items: flex-start; /* Align items to the left */
+    padding: 15px; /* Add more padding for readability */
+  }
+
+  .cart-item-image {
+    width: 50px; /* Reduce image size */
+    height: 50px;
+    margin-bottom: 12px; /* Add some space below image */
+  }
+
+  .cart-item-info {
+    font-size: 13px; /* Slightly smaller text */
+  }
+
+  .btn-checkout {
+    font-size: 13px; /* Smaller button font size */
+    padding: 8px 14px; /* Adjust button size */
+  }
+
+  .empty-cart-icon {
+    font-size: 60px; /* Adjust empty cart icon size */
+  }
+
+  .btn-primary {
+    padding: 8px 16px; /* Adjust button padding */
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .container-cart {
+    padding: 15px; /* Further reduce padding for very small screens */
+  }
+
+  .cart-item {
+    padding: 12px; /* Adjust padding for smaller screens */
+  }
+
+  .cart-item-image {
+    width: 40px; /* Further reduce image size */
+    height: 40px;
+    margin-right: 10px; /* Reduce margin between image and text */
+  }
+
+  .cart-item-info {
+    font-size: 11px; /* Further reduce text size */
+  }
+
+  .btn-checkout {
+    font-size: 12px; /* Smaller font size for the button */
+    padding: 6px 12px; /* Adjust button padding */
+  }
+
+  .empty-cart-icon {
+    font-size: 50px; /* Further reduce the icon size */
+  }
+
+  .btn-primary {
+    padding: 6px 12px; /* Smaller button padding */
+    font-size: 12px; /* Smaller font size */
+  }
+
+  /* Text adjustments for smaller screens */
+  h2 {
+    font-size: 1.2rem; /* Smaller heading size */
+  }
+
+  .cart-item h5 {
+    font-size: 13px; /* Adjust item name font size */
+  }
+
+  .text-muted {
+    font-size: 12px; /* Smaller text for price and quantity */
+  }
+
+  .text-end h4 {
+    font-size: 14px; /* Adjust total price size */
+  }
 }

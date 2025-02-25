@@ -107,3 +107,31 @@
 .modal button:hover {
   background-color: #0056b3;
 }
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.empty-icon {
+  color: #ccc;
+}
+
+.empty-state h4 {
+  margin-top: 10px;
+  color: #333;
+}
+
+.empty-state p {
+  color: #666;
+}
+
+.empty-state button {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+}

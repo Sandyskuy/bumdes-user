@@ -1,0 +1,65 @@
+/* Back.css */
+.back {
+  position: relative;
+  color: white;
+}
+
+.container-back {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.container-back span {
+  font-size: 1.5rem; /* Ukuran font default untuk nama */
+  font-weight: 500;
+  color: #007bff;
+}
+
+.container-back h1 {
+  font-size: 3rem; /* Ukuran font default untuk judul */
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.container-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5); /* Menambahkan efek kegelapan pada gambar */
+}
+
+/* Responsif untuk tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .container-back span {
+    font-size: 1.2rem;
+  }
+
+  .container-back h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Responsif untuk mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .container-back span {
+    font-size: 1rem;
+  }
+
+  .container-back h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Responsif untuk perangkat sangat kecil (max-width: 480px) */
+@media (max-width: 480px) {
+  .container-back span {
+    font-size: 0.9rem;
+  }
+
+  .container-back h1 {
+    font-size: 1.5rem;
+  }
+}

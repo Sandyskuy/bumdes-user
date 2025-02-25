@@ -20,21 +20,21 @@
 }
 
 .about-title {
-  text-align: left; /* Pastikan teks rata kiri */
-  margin-bottom: 20px; /* Beri jarak antara title dan paragraf */
+  text-align: left;
+  margin-bottom: 20px;
 }
 
 .about-title h1 {
-  font-size: 35px; /* Ukuran judul */
-  font-weight: 600; /* Tebalkan judul */
-  color: #222; /* Warna judul */
-  margin-bottom: 5px; /* Jarak antara judul dan alamat */
+  font-size: 35px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 5px;
 }
 
 .about-title p {
-  font-size: 16px; /* Ukuran teks alamat */
-  color: #555; /* Warna teks */
-  margin: 0; /* Hapus margin default */
+  font-size: 16px;
+  color: #555;
+  margin: 0;
   line-height: 1.5;
 }
 
@@ -61,9 +61,44 @@
 }
 
 /* RESPONSIVE */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr; /* Stack content for medium screens */
+    gap: 20px;
+  }
+
+  .about-text {
+    margin: 0;
+    text-align: center;
+  }
+
+  .about-title h1 {
+    font-size: 28px;
+  }
+
+  .about-title p {
+    font-size: 14px;
+  }
+
+  .btn-visit {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+  }
+
+  .about-image img {
+    border-radius: 8px;
+  }
+
+  /* Rearranging image above text */
+  .about-image {
+    order: -1; /* Move the image above the text */
+  }
+}
+
 @media (max-width: 768px) {
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Stack content for small screens */
     text-align: center;
   }
 
@@ -71,9 +106,51 @@
     margin: auto;
   }
 
+  .about-title h1 {
+    font-size: 26px;
+  }
+
+  .about-title p {
+    font-size: 14px;
+  }
+
   .btn-visit {
-    display: inline-block;
     width: fit-content;
     margin: auto;
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .about-image img {
+    border-radius: 8px;
+  }
+
+  /* Rearranging image above text */
+  .about-image {
+    order: -1; /* Move the image above the text */
+  }
+}
+
+@media (max-width: 480px) {
+  .about-title h1 {
+    font-size: 24px;
+  }
+
+  .about-title p {
+    font-size: 12px;
+  }
+
+  .about-text p {
+    font-size: 14px;
+  }
+
+  .btn-visit {
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+
+  /* Rearranging image above text */
+  .about-image {
+    order: -1; /* Move the image above the text */
   }
 }

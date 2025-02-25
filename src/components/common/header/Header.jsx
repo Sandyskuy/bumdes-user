@@ -1,24 +1,32 @@
-import React, { useEffect, useState } from "react";
-import "./header.css";
-import { nav, navLogined } from "../../data/Data";
+import React, { useEffect, useState, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
+import classNames from "classnames";
+import "./header.css";
+import { nav, navLogined } from "../../data/Data";
 import Profile from "../../images/Profile.png";
 
 const Header = () => {
   const [navList, setNavList] = useState(false);
-  const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(() => !!localStorage.getItem("token")); // Perbaikan di sini
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    setLogin(token != null);
+    const handleStorageChange = () => {
+      setLogin(!!localStorage.getItem("token"));
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
   }, []);
 
   const handleLogout = () => {
     localStorage.clear();
+    setLogin(false); // Pastikan state diperbarui
     navigate("/login");
   };
+
+  const navItems = useMemo(() => (login ? navLogined : nav), [login]);
 
   return (
     <header>
@@ -26,21 +34,15 @@ const Header = () => {
         <div className="logo-bumdes">
           <img src="./images/logo1.png" alt="Logo" />
         </div>
-        <div className="nav">
-          <ul className={navList ? "small" : "flex"}>
-            {login
-              ? navLogined.map((list, index) => (
-                  <li key={index}>
-                    <Link to={list.path}>{list.text}</Link>
-                  </li>
-                ))
-              : nav.map((list, index) => (
-                  <li key={index}>
-                    <Link to={list.path}>{list.text}</Link>
-                  </li>
-                ))}
+        <nav className="nav">
+          <ul className={classNames({ small: navList, flex: !navList })}>
+            {navItems.map((list, index) => (
+              <li key={index}>
+                <Link to={list.path}>{list.text}</Link>
+              </li>
+            ))}
           </ul>
-        </div>
+        </nav>
         <div className="button flex">
           {login ? (
             <Dropdown>
@@ -51,7 +53,6 @@ const Header = () => {
               >
                 <img src={Profile} alt="Profile" className="profile-image" />
               </Dropdown.Toggle>
-
               <Dropdown.Menu align="end">
                 <Dropdown.Item as={Link} to="/keranjang">
                   Keranjang
@@ -68,19 +69,15 @@ const Header = () => {
             </Dropdown>
           ) : (
             <Link to="/login">
-              <button className="btn1">
+              <button className="btn-signin">
                 <i className="fa fa-sign-in"></i> Sign In
               </button>
             </Link>
           )}
         </div>
         <div className="toggle">
-          <button onClick={() => setNavList(!navList)}>
-            {navList ? (
-              <i className="fa fa-times"></i>
-            ) : (
-              <i className="fa fa-bars"></i>
-            )}
+          <button onClick={() => setNavList((prev) => !prev)}>
+            <i className={`fa ${navList ? "fa-times" : "fa-bars"}`}></i>
           </button>
         </div>
       </div>
