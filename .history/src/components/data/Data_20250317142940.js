@@ -17,7 +17,7 @@ export const nav = [
   },
   {
     text: "berita",
-    path: "/newslist",
+    path: "/newslist"
   },
 ];
 
@@ -37,10 +37,6 @@ export const navLogined = [
   {
     text: "hubungi kami",
     path: "/contact",
-  },
-  {
-    text: "berita",
-    path: "/newslist",
   },
 ];
 

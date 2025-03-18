@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import "./Newslist.css";
 
 const NewsList = () => {
-  const [berita, setNews] = useState([]);
+  const [berita, setNe] = useState([]);
 
   // Fetch berita dari API dengan axios
   const fetchNews = useCallback(async () => {
     try {
-      const response = await axios.get("http://localhost:8080/berita"); // Sesuaikan URL jika perlu
+      const response = await axios.get("http://localhost:8000/berita"); // Sesuaikan URL jika perlu
       setNews(response.data);
     } catch (error) {
       console.error("Error fetching news:", error);
@@ -29,13 +29,13 @@ const NewsList = () => {
             berita.map((item) => (
               <div className="newslist-item" key={item.id}>
                 <img
-                  src={item.gambar ? `http://localhost:8080/uploads/${item.gambar}` : "/default-news.png"}
+                  src={item.gambar ? `http://localhost:8000/uploads/${item.gambar}` : "/default-news.png"}
                   alt={item.judul}
                   onError={(e) => (e.target.src = "/default-news.png")} // Fallback jika gambar tidak ditemukan
                 />
                 <div className="newslist-info">
                   <h2>{item.judul}</h2>
-                  <Link to={`/news/${item.id}`} className="read-more">
+                  <Link to={`/berita/${item.id}`} className="read-more">
                     Baca Selengkapnya →
                   </Link>
                 </div>

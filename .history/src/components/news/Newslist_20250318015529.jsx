@@ -29,13 +29,14 @@ const NewsList = () => {
             berita.map((item) => (
               <div className="newslist-item" key={item.id}>
                 <img
-                  src={item.gambar ? `http://localhost:8080/uploads/${item.gambar}` : "/default-news.png"}
+                  src={`http://localhost:8080/uploads/${item.gambar}`}
                   alt={item.judul}
-                  onError={(e) => (e.target.src = "/default-news.png")} // Fallback jika gambar tidak ditemukan
+                  onError={(e) => (e.target.src = "/default-news.png")}
                 />
+
                 <div className="newslist-info">
                   <h2>{item.judul}</h2>
-                  <Link to={`/news/${item.id}`} className="read-more">
+                  <Link to={`/berita/${item.id}`} className="read-more">
                     Baca Selengkapnya →
                   </Link>
                 </div>

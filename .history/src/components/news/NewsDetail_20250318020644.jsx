@@ -5,7 +5,7 @@ import "./NewsDetail.css";
 
 const NewsDetail = () => {
   const { id } = useParams(); // Ambil ID dari URL
-  const [berita, setNews] = useState(null);
+  const [news, setNews] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -48,7 +48,7 @@ const NewsDetail = () => {
         <div className="news-content">
           <p>{berita.isi}</p>
         </div>
-        <Link to="/newslist" className="back-button">Kembali</Link>
+        <Link to="/" className="back-button">Kembali</Link>
       </div>
     </section>
   );

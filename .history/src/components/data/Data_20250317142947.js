@@ -38,10 +38,7 @@ export const navLogined = [
     text: "hubungi kami",
     path: "/contact",
   },
-  {
-    text: "berita",
-    path: "/newslist",
-  },
+  
 ];
 
 export const featured = [

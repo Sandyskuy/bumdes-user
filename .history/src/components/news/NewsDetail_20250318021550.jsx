@@ -48,7 +48,7 @@ const NewsDetail = () => {
         <div className="news-content">
           <p>{berita.isi}</p>
         </div>
-        <Link to="/newslist" className="back-button">Kembali</Link>
+        <Link to="/news" className="back-button">Kembali</Link>
       </div>
     </section>
   );

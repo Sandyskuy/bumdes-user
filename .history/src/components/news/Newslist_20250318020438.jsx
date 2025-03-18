@@ -35,7 +35,7 @@ const NewsList = () => {
                 />
                 <div className="newslist-info">
                   <h2>{item.judul}</h2>
-                  <Link to={`/news/${item.id}`} className="read-more">
+                  <Link to={`/berita/detail/${item.id}`} className="read-more">
                     Baca Selengkapnya →
                   </Link>
                 </div>

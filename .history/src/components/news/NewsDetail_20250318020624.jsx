@@ -5,7 +5,7 @@ import "./NewsDetail.css";
 
 const NewsDetail = () => {
   const { id } = useParams(); // Ambil ID dari URL
-  const [berita, setNews] = useState(null);
+  const [news, setNews] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -32,23 +32,23 @@ const NewsDetail = () => {
     <section className="news-detail">
       <div className="container-news">
         <div className="news-header">
-          <h1 className="news-title">{berita.judul}</h1>
+          <h1 className="news-title">{news.judul}</h1>
           <div className="news-meta">
-            <p className="author">Oleh {berita.penulis || "Admin"}</p>
+            <p className="author">Oleh {news.penulis || "Admin"}</p>
             <div className="divider"></div>
-            <p className="publish-date">{berita.tanggal}</p>
+            <p className="publish-date">{news.tanggal}</p>
           </div>
           <img
-            src={berita.gambar ? `http://localhost:8080/uploads/${berita.gambar}` : "/default-news.png"}
-            alt={berita.judul}
+            src={news.gambar ? `http://localhost:8080/uploads/${news.gambar}` : "/default-news.png"}
+            alt={news.judul}
             className="news-detail-image"
             onError={(e) => (e.target.src = "/default-news.png")}
           />
         </div>
         <div className="news-content">
-          <p>{berita.isi}</p>
+          <p>{news.isi}</p>
         </div>
-        <Link to="/newslist" className="back-button">Kembali</Link>
+        <Link to="/" className="back-button">Kembali</Link>
       </div>
     </section>
   );
