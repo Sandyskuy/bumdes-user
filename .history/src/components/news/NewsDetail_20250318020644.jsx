@@ -1,38 +1,20 @@
 import React, { useEffect, useState } from "react";
-<<<<<<< HEAD
-import { useParams } from "react-router-dom";
-=======
 import { useParams, Link } from "react-router-dom";
->>>>>>> 6db7e6653735bf2970e626f935a1718773cb7b72
 import axios from "axios";
 import "./NewsDetail.css";
 
 const NewsDetail = () => {
-<<<<<<< HEAD
-  const { id } = useParams();
-  const [berita, setBerita] = useState(null);
-=======
   const { id } = useParams(); // Ambil ID dari URL
-  const [berita, setNews] = useState(null);
->>>>>>> 6db7e6653735bf2970e626f935a1718773cb7b72
+  const [news, setNews] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-<<<<<<< HEAD
-    const fetchNewsDetail = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:8080/berita/detail/${id}`
-        );
-        setBerita(response.data); // Tidak menghapus tag HTML
-=======
     // Fetch data berita berdasarkan ID
     const fetchNewsDetail = async () => {
       try {
         const response = await axios.get(`http://localhost:8080/berita/detail/${id}`);
         setNews(response.data);
->>>>>>> 6db7e6653735bf2970e626f935a1718773cb7b72
       } catch (err) {
         setError("Berita tidak ditemukan!");
       } finally {
@@ -57,28 +39,16 @@ const NewsDetail = () => {
             <p className="publish-date">{berita.tanggal}</p>
           </div>
           <img
-<<<<<<< HEAD
-            src={
-              berita.gambar
-                ? `http://localhost:8080/uploads/${berita.gambar}`
-                : "/default-news.png"
-            }
-=======
             src={berita.gambar ? `http://localhost:8080/uploads/${berita.gambar}` : "/default-news.png"}
->>>>>>> 6db7e6653735bf2970e626f935a1718773cb7b72
             alt={berita.judul}
             className="news-detail-image"
             onError={(e) => (e.target.src = "/default-news.png")}
           />
         </div>
         <div className="news-content">
-<<<<<<< HEAD
-          <div dangerouslySetInnerHTML={{ __html: berita.isi }} />
-=======
           <p>{berita.isi}</p>
->>>>>>> 6db7e6653735bf2970e626f935a1718773cb7b72
         </div>
-        <Link to="/newslist" className="back-button">Kembali</Link>
+        <Link to="/" className="back-button">Kembali</Link>
       </div>
     </section>
   );

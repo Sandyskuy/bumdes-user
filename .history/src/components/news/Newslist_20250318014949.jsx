@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Newslist.css";
+import imgPlaceholder from ""
 
 const NewsList = () => {
   const [berita, setNews] = useState([]);
@@ -29,25 +30,14 @@ const NewsList = () => {
             berita.map((item) => (
               <div className="newslist-item" key={item.id}>
                 <img
-<<<<<<< HEAD
-                  src={
-                    item.gambar
-                      ? `http://localhost:8080/uploads/${item.gambar}`
-                      : "/default-news.png"
-                  }
-=======
-                  src={item.gambar ? `http://localhost:8080/uploads/${item.gambar}` : "/default-news.png"}
->>>>>>> 6db7e6653735bf2970e626f935a1718773cb7b72
+                  src={`http://localhost:8080/uploads/${item.gambar}`}
                   alt={item.judul}
-                  onError={(e) => (e.target.src = "/default-news.png")} // Fallback jika gambar tidak ditemukan
+                  onError={(e) => (e.target.src = "/default-news.png")}
                 />
+
                 <div className="newslist-info">
-<<<<<<< HEAD
-                  <h2 className="newslist-judul">{item.judul}</h2>
-=======
                   <h2>{item.judul}</h2>
->>>>>>> 6db7e6653735bf2970e626f935a1718773cb7b72
-                  <Link to={`/news/${item.id}`} className="read-more">
+                  <Link to={`/berita/${item.id}`} className="read-more">
                     Baca Selengkapnya →
                   </Link>
                 </div>
