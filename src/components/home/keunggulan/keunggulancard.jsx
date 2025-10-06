@@ -1,6 +1,6 @@
 import React from "react";
 import { featured } from "../../data/Data";
-import "./Featured.css";
+import "./keunggulan.css";
 
 const FeaturedCard = () => {
   return (

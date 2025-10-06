@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import imgPlaceholder from "../images/empty cart.png";
 import "./Detailproduk.css";
 
 const DetailBarang = () => {
@@ -13,13 +14,15 @@ const DetailBarang = () => {
 
   useEffect(() => {
     const fetchBarang = async () => {
+      setLoading(true);
+      setError(null);
       try {
         const response = await axios.get(
           `http://localhost:8080/barang/detail/${id}`
         );
         setBarang(response.data);
       } catch (error) {
-        setError(error.message);
+        setError(error.response?.data?.message || error.message);
       } finally {
         setLoading(false);
       }
@@ -29,33 +32,33 @@ const DetailBarang = () => {
   }, [id]);
 
   const addToCart = async () => {
+    if (quantity < 1) {
+      setError("Quantity harus minimal 1");
+      return;
+    }
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.post(
+      await axios.post(
         "http://localhost:8080/transaksi/Cart/",
         {
           barang_id: id,
           jumlah: quantity,
         },
         {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+          headers: { Authorization: `Bearer ${token}` },
         }
       );
       navigate("/keranjang");
     } catch (error) {
-      setError(error.message);
+      setError(error.response?.data?.message || error.message);
     }
   };
 
-  // Format harga ke dalam Rupiah
-  const formatRupiah = (angka) => {
-    return new Intl.NumberFormat("id-ID", {
+  const formatRupiah = (angka) =>
+    new Intl.NumberFormat("id-ID", {
       style: "currency",
       currency: "IDR",
     }).format(angka);
-  };
 
   if (loading) {
     return (
@@ -66,7 +69,7 @@ const DetailBarang = () => {
     );
   }
 
-  if (error) return <p>Error: {error}</p>;
+  if (error && !barang) return <p className="text-danger">Error: {error}</p>;
 
   return (
     <div className="container-detail mt-5">
@@ -75,9 +78,17 @@ const DetailBarang = () => {
         <div className="col-lg-6 col-md-6 mb-4">
           <div className="product-image-container">
             <img
-              src={`http://localhost:8080/uploads/${barang.gambar}`}
-              alt={barang.nama}
+              src={
+                barang?.gambar
+                  ? `http://localhost:8080/uploads/${barang.gambar}`
+                  : imgPlaceholder
+              }
+              alt={barang?.nama || "Product Image"}
               className="product-detail-image"
+              onError={(e) => {
+                e.target.onerror = null; // prevent infinite loop
+                e.target.src = imgPlaceholder;
+              }}
             />
           </div>
         </div>
@@ -85,18 +96,24 @@ const DetailBarang = () => {
         {/* Product Details Section */}
         <div className="col-lg-6 col-md-6">
           <div className="product-info">
-            <h2 className="product-name">{barang.nama}</h2>
-            <p className="product-price">{formatRupiah(barang.harga)}</p>
-            <p className="product-description">{barang.deskripsi}</p>
+            <h2 className="product-name">
+              {barang?.nama || "Nama produk tidak tersedia"}
+            </h2>
+            <p className="product-price">
+              {barang ? formatRupiah(barang.harga) : "-"}
+            </p>
+            <p className="product-description">
+              {barang?.deskripsi || "Deskripsi produk tidak tersedia."}
+            </p>
             <p className="product-stock">
-              <strong>Stock:</strong> {barang.stok}
+              <strong>Stock:</strong> {barang?.stok ?? "-"}
             </p>
 
             {/* Quantity Control */}
             <div className="quantity-container mb-4">
               <button
                 className="quantity-btn-detail"
-                onClick={() => setQuantity(Math.max(quantity - 1, 1))}
+                onClick={() => setQuantity((q) => Math.max(q - 1, 1))}
               >
                 -
               </button>
@@ -105,11 +122,14 @@ const DetailBarang = () => {
                 className="quantity-input"
                 min="1"
                 value={quantity}
-                onChange={(e) => setQuantity(Number(e.target.value))}
+                onChange={(e) => {
+                  const val = Number(e.target.value);
+                  setQuantity(val < 1 || isNaN(val) ? 1 : val);
+                }}
               />
               <button
                 className="quantity-btn-detail"
-                onClick={() => setQuantity(quantity + 1)}
+                onClick={() => setQuantity((q) => q + 1)}
               >
                 +
               </button>

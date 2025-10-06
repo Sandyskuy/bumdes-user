@@ -15,6 +15,10 @@ export const nav = [
     text: "hubungi kami",
     path: "/contact",
   },
+  {
+    text: "berita",
+    path: "/newslist",
+  },
 ];
 
 export const navLogined = [
@@ -33,6 +37,10 @@ export const navLogined = [
   {
     text: "hubungi kami",
     path: "/contact",
+  },
+  {
+    text: "berita",
+    path: "/newslist",
   },
 ];
 

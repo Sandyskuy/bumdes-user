@@ -1,49 +1,53 @@
-import React from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Newslist.css";
-import img from "../images/about.jpg";
 
 const NewsList = () => {
-  // Data berita manual
-  const newsItems = [
-    {
-      id: 1,
-      image: "https://via.placeholder.com/150",
-      title: "Berita Pertama",
-    },
-    {
-      id: 2,
-      image: "https://via.placeholder.com/150",
-      title: "Berita Kedua",
-    },
-    {
-      id: 3,
-      image: "https://via.placeholder.com/150",
-      title: "Berita Ketiga",
-    },
-    {
-      id: 4,
-      image: "https://via.placeholder.com/150",
-      title: "Berita Keempat",
-    },
-  ];
+  const [berita, setNews] = useState([]);
+
+  // Fetch berita dari API dengan axios
+  const fetchNews = useCallback(async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/berita"); // Sesuaikan URL jika perlu
+      setNews(response.data);
+    } catch (error) {
+      console.error("Error fetching news:", error);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchNews();
+  }, [fetchNews]);
 
   return (
     <section className="news-list">
       <div className="container">
         <h1>Daftar Berita</h1>
         <div className="news-list-container">
-          {newsItems.map((news) => (
-            <div className="newslist-item" key={news.id}>
-              <img src={img} alt={news.title} />
-              <div className="newslist-info">
-                <h2>{news.title}</h2>
-                <Link to={`/news/${news.id}`} className="read-more">
-                  Baca Selengkapnya →
-                </Link>
+          {berita.length > 0 ? (
+            berita.map((item) => (
+              <div className="newslist-item" key={item.id}>
+                <img
+                  src={
+                    item.gambar
+                      ? `http://localhost:8080/uploads/${item.gambar}`
+                      : "/default-news.png"
+                  }
+                  alt={item.judul}
+                  onError={(e) => (e.target.src = "/default-news.png")} // Fallback jika gambar tidak ditemukan
+                />
+                <div className="newslist-info">
+                  <h2 className="newslist-judul">{item.judul}</h2>
+                  <Link to={`/news/${item.id}`} className="read-more">
+                    Baca Selengkapnya →
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <p>Tidak ada berita yang tersedia.</p>
+          )}
         </div>
       </div>
     </section>

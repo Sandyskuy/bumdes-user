@@ -60,9 +60,9 @@ const Header = () => {
                 <Dropdown.Item as={Link} to="/payments">
                   Pembayaran
                 </Dropdown.Item>
-                <Dropdown.Item as={Link} to="/riwayat">
+                {/* <Dropdown.Item as={Link} to="/riwayat">
                   Riwayat
-                </Dropdown.Item>
+                </Dropdown.Item> */}
                 <Dropdown.Divider />
                 <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
               </Dropdown.Menu>

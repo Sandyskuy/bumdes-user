@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Gopay from "./Gopay";
-import "./checkout.css"; // Pastikan file CSS ini ada
+import "./checkout.css";
 
 const Checkout = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [cartItems, setCartItems] = useState(location.state.cartItems);
-  const [total, setTotal] = useState(location.state.total);
+  const [cartItems] = useState(location.state.cartItems);
+  const [total] = useState(location.state.total);
   const [showModal, setShowModal] = useState(false);
-  const [gopay, setGopay] = useState(false);
+  const [showGopayModal, setShowGopayModal] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
   const [alamat, setAlamat] = useState("");
   const [error, setError] = useState("");
@@ -32,6 +31,10 @@ const Checkout = () => {
     setShowModal(false);
   };
 
+  const handleGopayModalClose = () => {
+    setShowGopayModal(false);
+  };
+
   const handlePaymentMethodSelect = async (paymentType) => {
     let cartItemsRequest = cartItems.map((item) => ({
       name: item.nama_barang,
@@ -46,7 +49,7 @@ const Checkout = () => {
         {
           order_details: cartItemsRequest,
           payment_methode: paymentType,
-          alamat: alamat, // Pastikan alamat dimasukkan ke dalam payload
+          alamat: alamat,
         },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -54,10 +57,11 @@ const Checkout = () => {
       );
 
       console.log("Order confirmed:", response.data);
+
       if (response.data.payments.payment_type === "gopay") {
         setImageUrl(response.data.payments.actions[0].url);
-        setGopay(true);
         setShowModal(false);
+        setShowGopayModal(true);
       } else {
         navigate("/sukses");
       }
@@ -77,7 +81,6 @@ const Checkout = () => {
     <div className="checkout-container">
       <h2 className="checkout-title">Checkout</h2>
       <div className="checkout-content">
-        {/* Kiri: Daftar Item */}
         <div className="checkout-items">
           {cartItems.map((item) => (
             <div key={item.barang_id} className="checkout-item">
@@ -95,7 +98,6 @@ const Checkout = () => {
           ))}
         </div>
 
-        {/* Kanan: Alamat & Tombol Checkout */}
         <div className="checkout-summary">
           <div className="checkout-address">
             <h4>Alamat Pengiriman:</h4>
@@ -124,7 +126,7 @@ const Checkout = () => {
         </div>
       </div>
 
-      {/* Modal Pilihan Pembayaran */}
+      {/* Modal Pilih Pembayaran */}
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-content">
@@ -150,9 +152,20 @@ const Checkout = () => {
         </div>
       )}
 
-      {gopay && imageUrl && <Gopay imageUrl={imageUrl} />}
-      {gopay && (
-        <img src={imageUrl} alt="QR Code Gopay" className="gopay-image" />
+      {/* Modal Gopay */}
+      {showGopayModal && imageUrl && (
+        <div className="modal-overlay">
+          <div className="modal-content gopay-modal">
+            <span className="close" onClick={handleGopayModalClose}>
+              &times;
+            </span>
+            <h2>Pembayaran Gopay</h2>
+            <p>
+              Silakan scan QR Code di bawah menggunakan aplikasi Gopay Anda:
+            </p>
+            <img src={imageUrl} alt="QR Code Gopay" className="gopay-image" />
+          </div>
+        </div>
       )}
     </div>
   );

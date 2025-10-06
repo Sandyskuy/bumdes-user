@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa"; // Import ikon keranjang
+import { FaShoppingCart } from "react-icons/fa";
+import imgPlaceholder from "../images/empty cart.png"; // pastikan path sesuai
 import "./Keranjang.css";
 
 const Keranjang = () => {
@@ -21,6 +22,8 @@ const Keranjang = () => {
     }
 
     const fetchCartItems = async () => {
+      setLoading(true);
+      setError(null);
       try {
         const response = await axios.get(
           "http://localhost:8080/transaksi/Cart",
@@ -29,13 +32,14 @@ const Keranjang = () => {
           }
         );
         setCartItems(response.data);
-        let total = response.data.reduce(
-          (sum, item) => sum + parseInt(item.harga) * item.jumlah,
+
+        const totalHarga = response.data.reduce(
+          (sum, item) => sum + Number(item.harga) * item.jumlah,
           0
         );
-        setTotal(total);
+        setTotal(totalHarga);
       } catch (error) {
-        setError(error.message);
+        setError(error.response?.data?.message || error.message);
       } finally {
         setLoading(false);
       }
@@ -48,15 +52,26 @@ const Keranjang = () => {
     navigate("/checkout", { state: { cartItems, total } });
   };
 
-  const formatRupiah = (angka) => {
-    return new Intl.NumberFormat("id-ID", {
+  const formatRupiah = (angka) =>
+    new Intl.NumberFormat("id-ID", {
       style: "currency",
       currency: "IDR",
     }).format(angka);
-  };
 
-  if (loading) return <div className="loading-spinner"></div>;
-  if (error) return <p className="text-center text-danger">Error: {error}</p>;
+  if (loading)
+    return (
+      <div className="loading-spinner-container">
+        <div className="loading-spinner"></div>
+        <p className="text-center">Loading Keranjang...</p>
+      </div>
+    );
+
+  if (error)
+    return (
+      <p className="text-center text-danger mt-4" role="alert">
+        Error: {error}
+      </p>
+    );
 
   return (
     <div className="container-cart mt-4">
@@ -76,9 +91,17 @@ const Keranjang = () => {
           {cartItems.map((item) => (
             <div key={item.barang_id} className="cart-item">
               <img
-                src={`http://localhost:8080/uploads/${item.gambar_barang}`}
-                alt={item.nama_barang}
+                src={
+                  item.gambar_barang
+                    ? `http://localhost:8080/uploads/${item.gambar_barang}`
+                    : imgPlaceholder
+                }
+                alt={item.nama_barang || "Produk"}
                 className="cart-item-image"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = imgPlaceholder;
+                }}
               />
               <div className="cart-item-info">
                 <h5>{item.nama_barang}</h5>

@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #333;
+}
+
+.about {
+  padding: 60px 20px;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+
+/* Text section */
+.about-text {
+  text-align: left;
+}
+
+.about-title h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.about-title p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.about-text p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #444;
+  text-align: justify;
+}
+
+/* Visit Button */
+.btn-visit {
+  display: inline-block;
+  background: #e63946;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-visit:hover {
+  background-color: #c5283d;
+}
+
+/* Image Section */
+.about-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive: Tablet */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .about-text {
+    order: 2;
+  }
+
+  .about-image {
+    order: 1;
+  }
+
+  .about-title h1 {
+    font-size: 2rem;
+  }
+
+  .about-title p {
+    font-size: 1rem;
+  }
+
+  .btn-visit {
+    width: auto;
+    margin: 20px auto 0;
+  }
+}
+
+/* Responsive: Mobile */
+@media (max-width: 768px) {
+  .about {
+    padding: 40px 15px;
+  }
+
+  .about-title h1 {
+    font-size: 1.75rem;
+  }
+
+  .about-title p,
+  .about-text p {
+    font-size: 0.95rem;
+  }
+
+  .btn-visit {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+}
+
+/* Responsive: Extra Small (Phones) */
+@media (max-width: 480px) {
+  .about-title h1 {
+    font-size: 1.5rem;
+  }
+
+  .about-title p {
+    font-size: 0.9rem;
+  }
+
+  .about-text p {
+    font-size: 0.9rem;
+  }
+
+  .btn-visit {
+    font-size: 0.85rem;
+    padding: 10px 16px;
+  }
+}

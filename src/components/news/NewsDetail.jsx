@@ -1,58 +1,57 @@
-import React from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import "./NewsDetail.css";
-import img from "../images/about.jpg"; // Replace with dynamic image if needed
 
 const NewsDetail = () => {
-  const { id } = useParams(); // Access the dynamic parameter from the URL
+  const { id } = useParams();
+  const [berita, setBerita] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Data berita manual (or you can fetch this from an API)
-  const newsItems = [
-    {
-      id: 1,
-      image: "https://via.placeholder.com/800x400",
-      title: "Berita Pertama",
-      content:
-        "MUNICH (Reuters) -The United States has asked its European allies what they would need from Washington to participate in Ukraine security arrangements, according to a document seen by Reuters.The diplomatic demarche sent last week, consisting of six points and questions, also asks which countries could contribute to the guarantees, which would be willing to deploy troops to Ukraine as part of a peace settlement, and what the size of any European-led force might be.",
-      author: "John Doe",
-      publishDate: "2025-02-16",
-      tags: ["Teknologi", "Inovasi"],
-      category: "Teknologi",
-    },
-    {
-      id: 2,
-      image: "https://via.placeholder.com/800x400",
-      title: "Berita Kedua",
-      content: "Konten lengkap berita kedua yang lebih mendalam dan relevan.",
-      author: "Jane Smith",
-      publishDate: "2025-02-15",
-      tags: ["Ekonomi", "Bisnis"],
-      category: "Bisnis",
-    },
-    // Add more news items as needed
-  ];
+  useEffect(() => {
+    const fetchNewsDetail = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:8080/berita/detail/${id}`
+        );
+        setBerita(response.data); // Tidak menghapus tag HTML
+      } catch (err) {
+        setError("Berita tidak ditemukan!");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  // Find the news item by ID
-  const news = newsItems.find((news) => news.id === parseInt(id));
+    fetchNewsDetail();
+  }, [id]);
 
-  if (!news) {
-    return <div>Berita tidak ditemukan!</div>; // Show a 404 message if the news item is not found
-  }
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
 
   return (
     <section className="news-detail">
       <div className="container-news">
         <div className="news-header">
-          <h1 className="news-title">{news.title}</h1>
+          <h1 className="news-title">{berita.judul}</h1>
           <div className="news-meta">
-            <p className="author">Oleh {news.author}</p>
+            <p className="author">Oleh {berita.penulis || "Admin"}</p>
             <div className="divider"></div>
-            <p className="publish-date">{news.publishDate}</p>
+            <p className="publish-date">{berita.tanggal}</p>
           </div>
-          <img src={img} alt={news.title} className="news-detail-image" />
+          <img
+            src={
+              berita.gambar
+                ? `http://localhost:8080/uploads/${berita.gambar}`
+                : "/default-news.png"
+            }
+            alt={berita.judul}
+            className="news-detail-image"
+            onError={(e) => (e.target.src = "/default-news.png")}
+          />
         </div>
         <div className="news-content">
-          <p>{news.content}</p>
+          <div dangerouslySetInnerHTML={{ __html: berita.isi }} />
         </div>
       </div>
     </section>

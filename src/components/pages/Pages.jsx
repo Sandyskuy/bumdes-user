@@ -2,8 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "../home/Home";
 import About from "../about/About";
-import Pricing from "../pricing/Pricing";
-import Blog from "../blog/Blog";
 import Services from "../services/Services";
 import Contact from "../contact/Contact";
 import Detail from "../services/DetailProduk";
@@ -42,22 +40,6 @@ const Pages = () => {
         element={
           <DefaultLayout>
             <Services />
-          </DefaultLayout>
-        }
-      />
-      <Route
-        path="/blog"
-        element={
-          <DefaultLayout>
-            <Blog />
-          </DefaultLayout>
-        }
-      />
-      <Route
-        path="/pricing"
-        element={
-          <DefaultLayout>
-            <Pricing />
           </DefaultLayout>
         }
       />

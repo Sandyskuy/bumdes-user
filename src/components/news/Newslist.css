@@ -44,10 +44,11 @@
   flex: 1;
 }
 
-.newslist-info h2 {
+.newslist-judul {
   font-size: 1.5rem;
   color: #333;
   margin-bottom: 5px;
+  text-align: left;
 }
 
 .newslist-info p {

@@ -1,79 +1,145 @@
-/* Container for the registration page to center content both horizontally and vertically */
+/* Container: Center content horizontally & vertically, full viewport height */
 .register-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f8f9fa; /* Light grey background for contrast */
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #f8f9fa;
 }
 
-/* Styling for the registration form container */
+/* Form box styling */
 .register-content {
-  max-width: 400px;
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  max-width: 420px;
   width: 100%;
-  padding: 30px;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  background-color: #fff; /* White background for the form */
-  text-align: center; /* Center align text inside the form */
+  text-align: center;
+  font-family: "Poppins", sans-serif;
 }
 
+/* Heading */
 .register-content h2 {
-  color: #BB2525; /* Primary color for the heading */
-  margin-bottom: 20px; /* Add space below the heading */
+  font-size: 2.25rem;
+  color: #bb2525;
+  font-weight: 600;
+  margin-bottom: 25px;
+  letter-spacing: 0.04em;
 }
 
+/* Form groups */
 .register-form .form-group {
-  margin-bottom: 15px;
-}
-
-.register-form .form-group input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-sizing: border-box;
-  outline: none;
-  transition: border-color 0.3s;
-}
-
-.register-form .form-group input:focus {
-  border-color: #BB2525;
-}
-
-.register-form .error {
-  color: #BB2525;
-  margin-top: 5px;
+  margin-bottom: 20px;
   text-align: left;
 }
 
+/* Inputs */
+.register-form .form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1.8px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+}
+
+.register-form .form-group input::placeholder {
+  color: #aaa;
+}
+
+.register-form .form-group input:focus {
+  border-color: #bb2525;
+  box-shadow: 0 0 8px rgba(187, 37, 37, 0.4);
+}
+
+/* Error message */
+.register-form .error {
+  color: #bb2525;
+  font-size: 0.875rem;
+  margin-top: 6px;
+}
+
+/* Success message */
 .register-form .success {
-  color: green;
+  color: #28a745;
+  font-size: 0.9rem;
+  margin-top: 6px;
 }
 
+/* General error message */
 .register-form .error-message {
-  color: #BB2525;
-  margin-bottom: 10px;
-  text-align: center;
+  color: #bb2525;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 1rem;
 }
 
+/* Submit Button */
 .register-form .btn {
   width: 100%;
-  padding: 12px;
-  background-color: #BB2525; /* Primary color for the button */
+  padding: 14px 0;
+  background-color: #bb2525;
   color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
+  letter-spacing: 0.03em;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(187, 37, 37, 0.4);
 }
 
-.register-form .btn:hover {
+.register-form .btn:hover:not(:disabled) {
   background-color: #a12020;
+  box-shadow: 0 6px 15px rgba(161, 32, 32, 0.7);
 }
 
 .register-form .btn:disabled {
   background-color: #ddd;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.login-link {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
+
+.login-link .link {
+  color: #bb2525;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.login-link .link:hover {
+  color: #a12020;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .register-content {
+    padding: 30px 20px;
+    max-width: 100%;
+  }
+
+  .register-content h2 {
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+  }
+
+  .register-form .btn {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
 }

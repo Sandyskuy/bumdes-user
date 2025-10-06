@@ -1,9 +1,9 @@
-import React from "react"
-import Awards from "./awards/Awards"
-import Featured from "./featured/Featured"
-import Hero from "./hero/Hero"
-import PasarSindon from "./location/Location"
-import Recomended from "./recomended/BestSelling"
+import React from "react";
+import Berita from "./berita/berita";
+import Featured from "./keunggulan/keunggulan";
+import Hero from "./hero/Hero";
+import PasarSindon from "./pasarsindon/Location";
+import Recomended from "./recomended/BestSelling";
 
 const Home = () => {
   return (
@@ -11,10 +11,10 @@ const Home = () => {
       <Hero />
       <Featured />
       <Recomended />
-      <Awards />
+      <Berita />
       <PasarSindon />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

@@ -8,120 +8,114 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #f8f9fa; /* Light gray background for a clean look */
+  background-color: #f9f9f9;
   color: #333;
+  line-height: 1.6;
 }
 
-/* Heading */
+/* Container Heading */
 .heading-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
 }
 
 .heading-container h1 {
-  font-size: 1.8rem;
+  font-size: clamp(1.5rem, 2vw, 2rem);
   font-weight: 700;
   color: #222;
 }
 
 .lihat-semua-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  gap: 8px;
   background-color: #007bff;
   color: #fff;
-  padding: 8px 15px;
-  border-radius: 20px;
+  padding: 10px 20px;
+  border-radius: 30px;
   font-size: 0.9rem;
-  font-weight: bold;
+  font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .lihat-semua-btn:hover {
   background-color: #0056b3;
-}
-
-.lihat-semua-btn i {
-  margin-left: 8px;
+  transform: translateY(-2px);
 }
 
 /* Grid Produk */
 .recomended {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 20px;
-  justify-content: center;
 }
 
-/* Card Produk */
+/* Kartu Produk */
 .card-section {
-  background: #fff;
-  border-radius: 12px;
+  background-color: #fff;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-decoration: none;
   color: inherit;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-section:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
 }
 
 /* Gambar Produk */
 .card-img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
 }
 
-/* Body Card */
+/* Isi Kartu */
 .card-body {
-  padding: 15px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
 }
 
-/* Judul Produk */
+.card-title-container {
+  margin-bottom: 10px;
+}
+
 .card-titles {
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-bottom: 5px;
+  font-size: clamp(1rem, 1.1vw, 1.2rem);
+  font-weight: 600;
   color: #222;
+  margin: 0;
 }
 
-/* Harga Produk */
+.category-name {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 6px;
+}
+
 .card-texts {
   font-size: 1rem;
-  color: #28a745;
   font-weight: bold;
-  margin-top: 5px;
-}
-
-/* Kategori Produk */
-.category-name {
-  font-size: 12px;
-  color: #fff;
-  background-color: #007bff;
-  padding: 4px 10px;
-  border-radius: 12px;
-  display: inline-block;
-  font-weight: 500;
-}
-
-/* Animasi Hover */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  color: #28a745;
+  margin-top: auto;
 }
 
 /* Loader */
@@ -132,55 +126,38 @@ body {
   height: 300px;
 }
 
-/* Responsive Styles */
+/* Responsive Breakpoints */
 @media (max-width: 768px) {
-  /* On medium-sized screens (tablet portrait) */
-  .recomended {
-    grid-template-columns: repeat(2, 1fr); /* Two items per row */
-  }
-
-  .heading-container h1 {
-    font-size: 1.5rem; /* Slightly smaller heading */
+  .heading-container {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .lihat-semua-btn {
-    font-size: 0.8rem; /* Slightly smaller button text */
-    padding: 6px 12px;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  .card-img {
+    height: 180px;
   }
 }
 
 @media (max-width: 480px) {
-  /* On small-sized screens (mobile devices) */
-  .recomended {
-    grid-template-columns: 1fr; /* One item per row */
-  }
-
-  .heading-container {
-    flex-direction: row; /* Stack heading and button vertically */
-    align-items: flex-start;
-  }
-
-  .heading-container h1 {
-    font-size: 1.2rem; /* Even smaller heading */
-    margin-bottom: 10px;
-  }
-
   .lihat-semua-btn {
-    width: 150px; /* Make button full-width on mobile */
-    font-size: 0.7rem;
-    padding: 5px;
-    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
   }
 
   .card-img {
-    height: 200px; /* Increase image height on small screens */
+    height: 160px;
   }
 
   .card-titles {
-    font-size: 1rem; /* Slightly smaller title font */
+    font-size: 1rem;
   }
 
   .card-texts {
-    font-size: 0.9rem; /* Smaller price font */
+    font-size: 0.9rem;
   }
 }

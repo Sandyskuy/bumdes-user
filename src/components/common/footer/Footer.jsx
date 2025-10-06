@@ -9,9 +9,8 @@ const Footer = () => {
         <div className="container">
           <div className="box">
             <div className="logo">
-              <img src="../images/logo3.png" alt="" />
-
-              <p>
+              <img src="/images/logo3.png" alt="Logo BUMDes Sidomulyo" />
+              <p className="footer-des">
                 Badan Usaha Milik Desa (BUMDes) Multiguna Sidomulyo adalah
                 sebuah entitas usaha yang beroperasi di Desa Sidomulyo,
                 Kecamatan Wonoasri, Kabupaten Madiun.
